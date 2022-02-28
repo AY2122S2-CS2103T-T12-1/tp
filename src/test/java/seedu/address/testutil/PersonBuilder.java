@@ -9,6 +9,7 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Remark;
 import seedu.address.model.person.Status;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
@@ -23,6 +24,7 @@ public class PersonBuilder {
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
     public static final String DEFAULT_STATUS = "Negative";
+    public static final String DEFAULT_REMARK = "";
     public static final String DEFAULT_CLASSCODE = "2A";
 
     private Name name;
@@ -30,6 +32,7 @@ public class PersonBuilder {
     private Email email;
     private Address address;
     private Status status;
+    private Remark remark;
     private ClassCode classCode;
     private Set<Tag> tags;
 
@@ -42,6 +45,7 @@ public class PersonBuilder {
         email = new Email(DEFAULT_EMAIL);
         address = new Address(DEFAULT_ADDRESS);
         status = new Status(DEFAULT_STATUS);
+        remark = new Remark(DEFAULT_REMARK);
         classCode = new ClassCode(DEFAULT_CLASSCODE);
         tags = new HashSet<>();
     }
@@ -55,6 +59,7 @@ public class PersonBuilder {
         email = personToCopy.getEmail();
         address = personToCopy.getAddress();
         status = personToCopy.getStatus();
+        remark = personToCopy.getRemark();
         classCode = personToCopy.getClassCode();
         tags = new HashSet<>(personToCopy.getTags());
     }
@@ -108,6 +113,14 @@ public class PersonBuilder {
     }
 
     /**
+     * Sets the {@code Remark} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withRemark(String remark) {
+        this.remark = new Remark(remark);
+        return this;
+    }
+
+    /**
      * Sets the {@code classCode} of the {@code Person} that we are building.
      */
     public PersonBuilder withClassCode(String classCode) {
@@ -116,7 +129,7 @@ public class PersonBuilder {
     }
 
     public Person build() {
-        return new Person(name, phone, email, address, status, classCode, tags);
+        return new Person(name, phone, email, address, status, remark, classCode, tags);
     }
 
 }
