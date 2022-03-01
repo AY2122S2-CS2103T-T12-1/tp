@@ -10,13 +10,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.person.Address;
-import seedu.address.model.person.ClassCode;
-import seedu.address.model.person.Email;
-import seedu.address.model.person.Name;
-import seedu.address.model.person.Person;
-import seedu.address.model.person.Phone;
-import seedu.address.model.person.Status;
+import seedu.address.model.person.*;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -30,6 +24,7 @@ class JsonAdaptedPerson {
     private final String phone;
     private final String email;
     private final String address;
+    private final String remark;
     private final String status;
     private final String classCode;
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
@@ -40,6 +35,7 @@ class JsonAdaptedPerson {
     @JsonCreator
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
             @JsonProperty("email") String email, @JsonProperty("address") String address,
+            @JsonProperty("remark") String remark,
             @JsonProperty("status") String status,
             @JsonProperty("classCode") String classCode,
             @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
@@ -47,6 +43,7 @@ class JsonAdaptedPerson {
         this.phone = phone;
         this.email = email;
         this.address = address;
+        this.remark = remark;
         this.status = status;
         this.classCode = classCode;
         if (tagged != null) {
@@ -62,6 +59,7 @@ class JsonAdaptedPerson {
         phone = source.getPhone().value;
         email = source.getEmail().value;
         address = source.getAddress().value;
+        remark = source.getRemark().value;
         status = source.getStatus().value;
         classCode = source.getClassCode().value;
         tagged.addAll(source.getTags().stream()
@@ -112,6 +110,11 @@ class JsonAdaptedPerson {
         }
         final Address modelAddress = new Address(address);
 
+        if (remark == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Remark.class.getSimpleName()));
+        }
+        final Remark modelRemark = new Remark(remark);
+
         if (status == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Status.class.getSimpleName()));
         }
@@ -130,7 +133,7 @@ class JsonAdaptedPerson {
         final ClassCode modelClassCode = new ClassCode(classCode);
 
         final Set<Tag> modelTags = new HashSet<>(personTags);
-        return new Person(modelName, modelPhone, modelEmail, modelAddress, modelStatus, modelClassCode, modelTags);
+        return new Person(modelName, modelPhone, modelEmail, modelAddress, modelRemark, modelStatus, modelClassCode, modelTags);
     }
 
 }

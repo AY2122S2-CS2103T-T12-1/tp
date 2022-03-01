@@ -32,6 +32,7 @@ public class JsonAdaptedPersonTest {
     private static final String VALID_PHONE = BENSON.getPhone().toString();
     private static final String VALID_EMAIL = BENSON.getEmail().toString();
     private static final String VALID_ADDRESS = BENSON.getAddress().toString();
+    private static final String VALID_REMARK = BENSON.getRemark().toString();
     private static final String VALID_STATUS = BENSON.getStatus().toString();
     private static final String VALID_CLASSCODE = BENSON.getClassCode().toString();
     private static final List<JsonAdaptedTag> VALID_TAGS = BENSON.getTags().stream()
@@ -52,6 +53,7 @@ public class JsonAdaptedPersonTest {
                         VALID_PHONE,
                         VALID_EMAIL,
                         VALID_ADDRESS,
+                        VALID_REMARK,
                         VALID_STATUS,
                         VALID_CLASSCODE,
                         VALID_TAGS);
@@ -66,6 +68,7 @@ public class JsonAdaptedPersonTest {
                 VALID_PHONE,
                 VALID_EMAIL,
                 VALID_ADDRESS,
+                VALID_REMARK,
                 VALID_STATUS,
                 VALID_CLASSCODE,
                 VALID_TAGS);
@@ -81,6 +84,7 @@ public class JsonAdaptedPersonTest {
                         INVALID_PHONE,
                         VALID_EMAIL,
                         VALID_ADDRESS,
+                        VALID_REMARK,
                         VALID_STATUS,
                         VALID_CLASSCODE,
                         VALID_TAGS);
@@ -95,6 +99,7 @@ public class JsonAdaptedPersonTest {
                 null,
                 VALID_EMAIL,
                 VALID_ADDRESS,
+                VALID_REMARK,
                 VALID_STATUS,
                 VALID_CLASSCODE,
                 VALID_TAGS);
@@ -110,6 +115,7 @@ public class JsonAdaptedPersonTest {
                         VALID_PHONE,
                         INVALID_EMAIL,
                         VALID_ADDRESS,
+                        VALID_REMARK,
                         VALID_STATUS,
                         VALID_CLASSCODE,
                         VALID_TAGS);
@@ -124,6 +130,7 @@ public class JsonAdaptedPersonTest {
                 VALID_PHONE,
                 null,
                 VALID_ADDRESS,
+                VALID_REMARK,
                 VALID_STATUS,
                 VALID_CLASSCODE,
                 VALID_TAGS);
@@ -138,6 +145,7 @@ public class JsonAdaptedPersonTest {
                         VALID_PHONE,
                         VALID_EMAIL,
                         INVALID_ADDRESS,
+                        VALID_REMARK,
                         VALID_STATUS,
                         VALID_CLASSCODE,
                         VALID_TAGS);
@@ -152,6 +160,7 @@ public class JsonAdaptedPersonTest {
                 VALID_PHONE,
                 VALID_EMAIL,
                 null,
+                VALID_REMARK,
                 VALID_STATUS,
                 VALID_CLASSCODE,
                 VALID_TAGS);
@@ -166,6 +175,7 @@ public class JsonAdaptedPersonTest {
                 VALID_PHONE,
                 VALID_EMAIL,
                 VALID_ADDRESS,
+                VALID_REMARK,
                 INVALID_STATUS,
                 VALID_CLASSCODE,
                 VALID_TAGS);
@@ -180,6 +190,7 @@ public class JsonAdaptedPersonTest {
                 VALID_PHONE,
                 VALID_EMAIL,
                 VALID_ADDRESS,
+                VALID_REMARK,
                 null,
                 VALID_CLASSCODE,
                 VALID_TAGS);
@@ -194,6 +205,7 @@ public class JsonAdaptedPersonTest {
                 VALID_PHONE,
                 VALID_EMAIL,
                 VALID_ADDRESS,
+                VALID_REMARK,
                 VALID_STATUS,
                 INVALID_CLASSCODE,
                 VALID_TAGS);
@@ -208,6 +220,7 @@ public class JsonAdaptedPersonTest {
                 VALID_PHONE,
                 VALID_EMAIL,
                 VALID_ADDRESS,
+                VALID_REMARK,
                 VALID_STATUS,
                 null,
                 VALID_TAGS);
@@ -225,6 +238,7 @@ public class JsonAdaptedPersonTest {
                         VALID_PHONE,
                         VALID_EMAIL,
                         VALID_ADDRESS,
+                        VALID_REMARK,
                         VALID_STATUS,
                         VALID_CLASSCODE,
                         invalidTags);
