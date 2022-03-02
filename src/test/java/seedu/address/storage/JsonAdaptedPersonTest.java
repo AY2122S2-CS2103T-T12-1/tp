@@ -33,6 +33,7 @@ public class JsonAdaptedPersonTest {
     private static final String VALID_EMAIL = BENSON.getEmail().toString();
     private static final String VALID_ADDRESS = BENSON.getAddress().toString();
     private static final String VALID_STATUS = BENSON.getStatus().toString();
+    private static final String VALID_REMARK = BENSON.getRemark().toString();
     private static final String VALID_CLASSCODE = BENSON.getClassCode().toString();
     private static final List<JsonAdaptedTag> VALID_TAGS = BENSON.getTags().stream()
             .map(JsonAdaptedTag::new)
@@ -53,6 +54,7 @@ public class JsonAdaptedPersonTest {
                         VALID_EMAIL,
                         VALID_ADDRESS,
                         VALID_STATUS,
+                        VALID_REMARK,
                         VALID_CLASSCODE,
                         VALID_TAGS);
         String expectedMessage = Name.MESSAGE_CONSTRAINTS;
@@ -67,6 +69,7 @@ public class JsonAdaptedPersonTest {
                 VALID_EMAIL,
                 VALID_ADDRESS,
                 VALID_STATUS,
+                VALID_REMARK,
                 VALID_CLASSCODE,
                 VALID_TAGS);
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Name.class.getSimpleName());
@@ -82,6 +85,7 @@ public class JsonAdaptedPersonTest {
                         VALID_EMAIL,
                         VALID_ADDRESS,
                         VALID_STATUS,
+                        VALID_REMARK,
                         VALID_CLASSCODE,
                         VALID_TAGS);
         String expectedMessage = Phone.MESSAGE_CONSTRAINTS;
@@ -96,6 +100,7 @@ public class JsonAdaptedPersonTest {
                 VALID_EMAIL,
                 VALID_ADDRESS,
                 VALID_STATUS,
+                VALID_REMARK,
                 VALID_CLASSCODE,
                 VALID_TAGS);
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Phone.class.getSimpleName());
@@ -111,6 +116,7 @@ public class JsonAdaptedPersonTest {
                         INVALID_EMAIL,
                         VALID_ADDRESS,
                         VALID_STATUS,
+                        VALID_REMARK,
                         VALID_CLASSCODE,
                         VALID_TAGS);
         String expectedMessage = Email.MESSAGE_CONSTRAINTS;
@@ -125,6 +131,7 @@ public class JsonAdaptedPersonTest {
                 null,
                 VALID_ADDRESS,
                 VALID_STATUS,
+                VALID_REMARK,
                 VALID_CLASSCODE,
                 VALID_TAGS);
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Email.class.getSimpleName());
@@ -139,6 +146,7 @@ public class JsonAdaptedPersonTest {
                         VALID_EMAIL,
                         INVALID_ADDRESS,
                         VALID_STATUS,
+                        VALID_REMARK,
                         VALID_CLASSCODE,
                         VALID_TAGS);
         String expectedMessage = Address.MESSAGE_CONSTRAINTS;
@@ -153,6 +161,7 @@ public class JsonAdaptedPersonTest {
                 VALID_EMAIL,
                 null,
                 VALID_STATUS,
+                VALID_REMARK,
                 VALID_CLASSCODE,
                 VALID_TAGS);
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Address.class.getSimpleName());
@@ -167,9 +176,10 @@ public class JsonAdaptedPersonTest {
                 VALID_EMAIL,
                 VALID_ADDRESS,
                 INVALID_STATUS,
+                VALID_REMARK,
                 VALID_CLASSCODE,
                 VALID_TAGS);
-        String expectedMessage = Status.MESSAGE_CONSTRAINTS;
+        String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Status.class.getSimpleName());
         assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
     }
 
@@ -181,6 +191,7 @@ public class JsonAdaptedPersonTest {
                 VALID_EMAIL,
                 VALID_ADDRESS,
                 null,
+                VALID_REMARK,
                 VALID_CLASSCODE,
                 VALID_TAGS);
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Status.class.getSimpleName());
@@ -195,9 +206,10 @@ public class JsonAdaptedPersonTest {
                 VALID_EMAIL,
                 VALID_ADDRESS,
                 VALID_STATUS,
+                VALID_REMARK,
                 INVALID_CLASSCODE,
                 VALID_TAGS);
-        String expectedMessage = ClassCode.MESSAGE_CONSTRAINTS;
+        String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, ClassCode.class.getSimpleName());
         assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
     }
 
@@ -209,6 +221,7 @@ public class JsonAdaptedPersonTest {
                 VALID_EMAIL,
                 VALID_ADDRESS,
                 VALID_STATUS,
+                VALID_REMARK,
                 null,
                 VALID_TAGS);
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, ClassCode.class.getSimpleName());
@@ -226,6 +239,7 @@ public class JsonAdaptedPersonTest {
                         VALID_EMAIL,
                         VALID_ADDRESS,
                         VALID_STATUS,
+                        VALID_REMARK,
                         VALID_CLASSCODE,
                         invalidTags);
         assertThrows(IllegalValueException.class, person::toModelType);

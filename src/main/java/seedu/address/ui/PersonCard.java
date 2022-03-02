@@ -39,6 +39,8 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private Label email;
     @FXML
+    private Label remark;
+    @FXML
     private Label status;
     @FXML
     private Label classCode;
@@ -57,6 +59,7 @@ public class PersonCard extends UiPart<Region> {
         address.setText(person.getAddress().value);
         email.setText(person.getEmail().value);
         status.setText(person.getStatus().value);
+        remark.setText(person.getRemark().value);
         classCode.setText(person.getClassCode().value);
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
